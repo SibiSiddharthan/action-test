@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.15)
+project(git 
+		VERSION 2.26
+		LANGUAGES C)
+
+find_package(ZLIB REQUIRED)
+find_package(CURL)
+find_package(EXPAT)
+find_package(Iconv)
