@@ -27,10 +27,6 @@ jobs:
         (New-Object Net.WebClient).DownloadFile($downloadUrl, "compat.zip")
         Expand-Archive compat.zip -DestinationPath . -Force
         Remove-Item compat.zip
-    - name: initialize vcpkg
-      shell: powershell
-      run: |
-        & .\compat\vcbuild\vcpkg_install.bat
     - name: add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.0
     - name: generate Visual Studio solution
