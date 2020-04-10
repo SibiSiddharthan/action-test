@@ -33,6 +33,7 @@ jobs:
       shell: powershell
       run: |
         & .\git-sdk-64-minimal\usr\bin\bash.exe -lc @"
+          echo $PWD
           cmake . -DCMAKE_PREFIX_PATH=$PWD/compat/vcbuild/vcpkg/installed/x64-windows
         "@
         if (!$?) { exit(1) }
