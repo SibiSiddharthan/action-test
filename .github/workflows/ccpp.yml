@@ -7,34 +7,25 @@ on:
     branches: [ master ]
 
 jobs:
-  vs-build:
-    env:
-      MSYSTEM: MINGW64
-      NO_PERL: 1
-      GIT_CONFIG_PARAMETERS: "'user.name=CI' 'user.email=ci@git'"
+  job-1:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: download git-sdk-64-minimal
-      shell: bash
-      run: a=git-sdk-64-minimal && mkdir -p $a && curl -# https://wingit.blob.core.windows.net/ci-artifacts/$a.tar.xz | tar -C $a -xJf -
-    - name: download vcpkg artifacts
-      shell: powershell
-      run: |
-        $urlbase = "https://dev.azure.com/git/git/_apis/build/builds"
-        $id = ((Invoke-WebRequest -UseBasicParsing "${urlbase}?definitions=9&statusFilter=completed&resultFilter=succeeded&`$top=1").content | ConvertFrom-JSON).value[0].id
-        $downloadUrl = ((Invoke-WebRequest -UseBasicParsing "${urlbase}/$id/artifacts").content | ConvertFrom-JSON).value[0].resource.downloadUrl
-        (New-Object Net.WebClient).DownloadFile($downloadUrl, "compat.zip")
-        Expand-Archive compat.zip -DestinationPath . -Force
-        Remove-Item compat.zip
-    - name: add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
-    - name: generate Visual Studio solution
-      shell: powershell
-      run: |
-        & .\git-sdk-64-minimal\usr\bin\bash.exe -lc @"
-         cmake . -DCMAKE_PREFIX_PATH=./compat/vcbuild/vcpkg/installed/x64-windows
-        "@
-        if (!$?) { exit(1) }
-    name: C/C++ CI
+      - uses: actions/checkout@v1
+      - name: echho
+        shell: bash
+        run: echo ${{github.workspace}}
+  job-2:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: echho
+        shell: bash
+        run: echo ${{github.workspace}}       
+  job-3:
+   runs-on: windows-latest
+   steps:
+     - uses: actions/checkout@v1
+     - name: echho
+       shell: bash
+       run: echo ${{github.workspace}}
 
