@@ -12,20 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: echho
-        shell: bash
-        run: echo ${{github.workspace}}
+        shell: cmd
+        run: cd
   job-2:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
       - name: echho
-        shell: bash
-        run: echo ${{github.workspace}}       
+        shell: cmd
+        run: cd       
   job-3:
    runs-on: windows-latest
    steps:
      - uses: actions/checkout@v1
      - name: echho
-       shell: bash
-       run: echo ${{github.workspace}}
+       shell: cmd
+       run: cd
 
