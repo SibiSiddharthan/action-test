@@ -12,21 +12,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - name: echho
-        shell: cmd
-        run: cd
-  job-2:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: echho
-        shell: cmd
-        run: cd       
-  job-3:
-   runs-on: windows-latest
-   steps:
-     - uses: actions/checkout@v1
-     - name: echho
-       shell: cmd
-       run: cd
-
+      - name: something
+        shell: bash
+        run: pwd
+      
