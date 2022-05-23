@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: something
-        shell: bash
-        run: echo `pwd`/hiha/`pwd`
+        shell: cmd
+        run: build.bat
       
