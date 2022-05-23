@@ -1,2 +1,3 @@
 vcvarsall amd64
-cl /c a.c
+cl /c HelloWorld.cpp
+HelloWorld.exe
