@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: ninja
-      - shell: cmd
+        shell: cmd
         run: choco install ninja
       - name: something
         shell: cmd
