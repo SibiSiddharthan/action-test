@@ -28,7 +28,7 @@ jobs:
         shell: cmd
         run: |
           CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" AMD64
-          clang-cl HelloWorld.cpp
+          clang++ HelloWorld.cpp
           ninja
           HelloWorld.exe
       
